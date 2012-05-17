@@ -1,0 +1,42 @@
+== RipL Installation Instructions ==
+
+Required:
+ setuptools
+ networkx
+ mininet (cs244 branch, but Topo only; full install not needed)
+
+== Debian/Ubuntu ==
+ sudo apt-get install python-setuptools
+
+DO NOT install python-networkx from Debian repos.
+
+Mininet install:
+ git clone git://github.com/mininet/mininet.git
+ cd mininet
+ git checkout -b cs244 origin/class/cs244
+ sudo make install
+
+Install RipL (which auto-installs networkx):
+ cd ~/ripl
+ sudo python setup.py install
+
+=== Mac OS 10.5.x (untested recently) ===
+
+Download and install setuptools
+ http://pypi.python.org/packages/2.5/s/setuptools/setuptools-0.6c9-py2.5.egg#md5=fe67c3e5a17b12c0e7c541b7ea43a8e6
+ sudo sh setuptools-0.6c9-py2.5.egg
+Download and install networkx
+ sudo easy_install networkx
+Or:
+ sudo port install py25-networkx
+
+Other dependencies may be installable from MacPorts (port).
+
+=== Windows (untested recently) ===
+
+Download python 2.5.x:
+ http://www.python.org/download/releases/2.5.4/
+Install setuptools:
+ http://pypi.python.org/packages/2.5/s/setuptools/setuptools-0.6c9.win32-py2.5.exe#md5=602d06054ec1165e995ae54ac30884d7
+Install python from git shell:
+ /c/Python25/Scripts/easy_install networkx

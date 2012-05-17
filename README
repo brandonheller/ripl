@@ -1,0 +1,20 @@
+== What is it? ==
+
+RipL (Ripcord-Lite, pronounced as "ripple") is a Python library to simplify the creation of data center code, such as OpenFlow network controllers, simulations, or Mininet topologies.
+
+== Why should you use it ==
+
+RipL provides:
+- a no-code way to run a Fat Tree or other data center topology on Mininet
+- a way to build a functional, multipath-capable network controller in about 100 lines of Python code (see RipL-POX project: github.com/brandonheller/riplpox)
+- a topology graph for creating custom data center simulators
+
+== History ==
+
+This code derives from Ripcord, an earlier project to understand how to better build data center network control code, in a clean way, to support modularity and using the code on a range of structured data center topologies (like Fat Trees, VL2, and multi-root trees).  A tech report is available at http://www.eecs.berkeley.edu/Pubs/TechRpts/2010/EECS-2010-93.html
+
+Past Ripcord code authors and testers include David Erickson, Igor Ganichev, Rean Griffith, Brandon Heller, Daekyeong Moon, Kyriakos Zarifis.
+
+== Contact == 
+
+For questions, email brandonh at stanford.edu.
