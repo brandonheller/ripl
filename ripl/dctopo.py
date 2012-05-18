@@ -17,6 +17,73 @@ from mininet.topo import Topo
 PORT_BASE = 1  # starting index for OpenFlow switch ports
 
 
+class NodeID(object):
+    '''Topo node identifier.'''
+
+    def __init__(self, dpid = None):
+        '''Init.
+
+        @param dpid dpid
+        '''
+        # DPID-compatible hashable identifier: opaque 64-bit unsigned int
+        self.dpid = dpid
+
+    def __str__(self):
+        '''String conversion.
+
+        @return str dpid as string
+        '''
+        return str(self.dpid)
+
+    def name_str(self):
+        '''Name conversion.
+
+        @return name name as string
+        '''
+        return str(self.dpid)
+
+    def ip_str(self):
+        '''Name conversion.
+
+        @return ip ip as string
+        '''
+        hi = (self.dpid & 0xff0000) >> 16
+        mid = (self.dpid & 0xff00) >> 8
+        lo = self.dpid & 0xff
+        return "10.%i.%i.%i" % (hi, mid, lo)
+
+
+class StructuredNodeSpec(object):
+    '''Layer-specific vertex metadata for a StructuredTopo graph.'''
+
+    def __init__(self, up_total, down_total, up_speed, down_speed,
+                 type_str = None):
+        '''Init.
+
+        @param up_total number of up links
+        @param down_total number of down links
+        @param up_speed speed in Gbps of up links
+        @param down_speed speed in Gbps of down links
+        @param type_str string; model of switch or server
+        '''
+        self.up_total = up_total
+        self.down_total = down_total
+        self.up_speed = up_speed
+        self.down_speed = down_speed
+        self.type_str = type_str
+
+
+class StructuredEdgeSpec(object):
+    '''Static edge metadata for a StructuredTopo graph.'''
+
+    def __init__(self, speed = 1.0):
+        '''Init.
+
+        @param speed bandwidth in Gbps
+        '''
+        self.speed = speed
+
+
 class StructuredTopo(Topo):
     '''Data center network representation for structured multi-trees.'''
 
