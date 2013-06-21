@@ -365,8 +365,8 @@ class FatTreeTopo(StructuredTopo):
         Note that the topological significance of DPIDs in FatTreeTopo enables
         this function to be implemented statelessly.
 
-        @param src source switch DPID
-        @param dst destination switch DPID
+        @param src source switch name
+        @param dst destination switch name
         @return tuple (src_port, dst_port):
             src_port: port on source switch leading to the destination switch
             dst_port: port on destination switch leading to the source switch
